@@ -1,0 +1,99 @@
+
+<link rel="stylesheet" href="/uploadimage.css">
+<% layout('./layout/boilerplate') %>
+
+<section class="container" id="form-container">
+    <div class="imagepreview">
+        <form action="/post_requirement" method="post" enctype="multipart/form-data" id="submitForm">
+            <div class="col-md-6 input">
+            <div class="form-group">
+            <label for="category">Category:</label>
+                <select name="category" id="category" class="form-control" placeholder="category">
+                    <option value="1">Food</option>
+                    <option value="2">Cloths</option>
+                    <option value="3">Stationary</option>
+                    <option value="4">Toys</option>
+                    <option value="5">Funds</option>
+                    <option value="6">Cloths</option>
+                    <option value="7">Medical Care</option>
+
+                </select>
+            </div>
+            </div>
+            <div class="col-md-6 input">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Item" type="text"name="Item" id="item">
+                </div>
+            </div>
+            <div class="col-md-6 input">
+                <div class="form-group">
+                    <input class="form-control" placeholder="quantity" type="number"name="quantity" id="quantity">
+                </div>
+            </div>
+            <div class="col-md-6 input">
+                <div class="form-group">
+                    <label for="emergency_value">Emergency Value:</label>
+                    <input class="form-control" placeholder="quantity" type="radio" name="emergency_value" id="emergency_value_yes" value="1">
+                    <label for="emergency_value_yes">Yes</label>
+                    <input class="form-control" placeholder="quantity" type="radio" name="emergency_value" id="emergency_value_no" value="0">
+                    <label for="emergency_value_no">No</label>
+                </div>
+            </div>
+            <div class="col-md-12 input">
+                <div class="form-group">
+                    <input value="SUBMIT" class="btn btn-primary"type="submit" id="image-upload-btn">
+                </div>
+            </div>
+        </form>
+        
+    </div>
+
+</section>
+
+
+
+<script src="/uploadimage.js"></script>
+
+
+<script>
+    document.getElementById('submitForm').addEventListener('submit', async (event) => {
+      event.preventDefault(); // Prevent form submission
+
+      // Fetch form data
+      const category = document.getElementById('category').value;
+      const item = document.getElementById('item').value;
+      const quantity = document.getElementById('quantity').value;
+      const emergencyValue = document.querySelector('input[name="emergency_value"]:checked').value;
+
+      // Create request body
+      const data = {
+        category,
+        item,
+        quantity,
+        emergencyValue
+      };
+
+      try {
+        // Make POST request to server
+        const response = await fetch('/post_requirement', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          // Handle successful response
+          alert("Posted successfully")
+          window.location.href = '/display_posted';
+        } else {
+          // Handle error response
+          alert('Failed to submit form');
+        }
+      } catch (error) {
+        // Handle fetch error
+        alert('Failed to fetch', error);
+      }
+    });
+  </script>

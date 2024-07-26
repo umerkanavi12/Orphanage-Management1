@@ -1,0 +1,163 @@
+<% layout('/layout/boilerplate') %>
+<link rel="stylesheet" href="/uploadimage.css">
+
+<style>
+   
+   /* Three columns side by side */
+.column {
+  float: left;
+  margin-bottom: 16px;
+  padding: 0 8px;
+  margin: 0 auto;
+
+}
+
+.card {
+  width: 33.3%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 5% auto;
+  border-radius: 30px;
+  border: 2px solid rgb(0, 255, 255);
+}
+
+/* Some left and right padding inside the container */
+.container {
+  max-width: 100%;
+  padding: 0 16px;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+h2{
+    text-transform: uppercase;
+}
+img{
+    padding: 5%;
+    border-radius: 10% 10% 2% 2%;
+}
+p{
+    color: #000;
+}
+#cardinfo{
+    padding: 6%;
+    padding-bottom: 0px;
+    }
+    @media screen and (max-width: 650px) {
+  .card {
+    width: 95%;
+    display: block;
+    /* margin: 5%; */
+  }
+}
+
+</style>
+<body>
+
+<div class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
+    <h1>Orphanage registration</h1>
+</div>
+            <!-- <div class="column"> -->
+              <div class="card">
+                <div class="container" id="cardinfo">
+                    <h2>Item: <%= data.item %></h2>
+                    <h4>Quantity: <%= data.quantity %></h4>
+                    <h4>Emergency Value: <%= data.emergency_value %></h4>
+                    <h4>Category: <%= data.category %></h4>
+                    <h4>Orphanage Name: <%= data.name %></h4>
+                    <h4>Orphanage Address: <%= data.address %></h4>
+                    <h4>Orphanage Email: <%= data.email %></h4>
+                </div>
+              </div>
+
+              <div class="fh5co-staff text-center animate-box">
+
+              <section class="container" id="form-container">
+
+              <form action="/donate" method="post" enctype="multipart/form-data" id="quantityForm">
+                <h2><label for="quantityInput">Please Enter How Much you want to donate (Maximum <%= data.quantity %>):</label></h2>
+                <input type="number" id="quantityInput" name="quantity" min="1" max="<%= data.quantity %>" required>
+                <input type="hidden" id="requirement_id" name="requirement_id" value="<%= data.requirement_id %>">
+                <div class="col-md-12 input">
+                    <div class="form-group">
+                        <input value="Donate" class="btn btn-primary"type="submit" id="submit">
+                    </div>
+                </div> 
+              </form>
+            </section>
+        </div>
+
+
+
+            <!-- </div> -->
+<script src="/uploadimage.js"></script>
+            
+<script>
+
+    
+  const quantityForm = document.getElementById('quantityInput');
+  const requirement_id = document.getElementById('requirement_id');
+
+  document.getElementById('quantityForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent form submission
+
+
+    // Construct the form data object
+    const formData = {
+      old_quantity : <%= data.quantity %>,
+      donated_quantity : quantityForm.value,
+      requirement_id: requirement_id.value,
+
+    };
+    console.log("formData");
+
+
+    try {
+      const response = await fetch('/donate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.status === 200) {
+        alert("Donation made successfully")
+        window.location.href = '/display_requirements';
+        // redirect('Registration successful');
+      } else {
+        // Handle registration error
+        alert('Registration failed');
+      }
+    } catch (error) {
+      // Handle fetch error
+      alert('Failed to fetch', error);
+    }
+  });
+    </script>
+
+
+</body>
+

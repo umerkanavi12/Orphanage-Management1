@@ -1,0 +1,169 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    }
+    /* STYLING THE NAVIGATION BAR OF IT SERVICES */
+    .banner {
+    background-color: black;
+    }
+    /* STYLING OF NAVIGATION BAR */
+    .navbar {
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: centre;
+    justify-content: space-between;
+    }
+    /* STYLING OF LOGO */
+    .logo {
+    width: 200px;
+    cursor: pointer;
+    }
+    /* STYLING OF EACH NAVIGATION BUTTON */
+    .navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+    }
+    
+    .navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    }
+    /* STYLING HOVER EFFECT ON NAVIGTION BAR */
+    .navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background:rgb(55, 185, 221);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+    }
+    
+    .navbar ul li:hover::after {
+    width: 100%;
+    } 
+    
+    section {
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)); */
+    
+    background-color: black;
+    height: 130vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    }
+    /* STYLING OF EACH SERVICES CARDS */
+    .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -15% ;
+    margin-left: -8%;
+    }
+    .column {
+    width: 100%;
+    padding:  0em 12em 12em 12em;
+    text-align: center;
+    }
+    /* STYLING OF CARD */
+    .card {
+    width: 250%;
+    height: 130%;
+    padding: 2em 3em;
+    background: linear-gradient(#0f0d0d 50%,rgb(81, 172, 122) 50%);
+    /* background-image: url(images/landingpage.jpg); */
+    background-size: 100% 200%;
+    background-position: 0 2.5%;
+    border-radius: 5px;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    transition: 1s;
+    margin-left: -40%;
+    }
+    /* STYLING OF SERVICE HEADING  */
+    h2{
+    color: whitesmoke;
+    font-family: 'Fugaz One', cursive;
+    margin-top: 40px;
+    }
+    /* STYLING OF HEADING OF EACH CARD  */
+    h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #d6d5e1;
+    margin: 0.5em 0em;
+    /* font-family: 'Fugaz One', cursive; */
+    }
+    /* p {
+    color: #575a7b;
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: 0.03em;
+    } */
+    
+    .icon-wrapper {
+    background-color:rgb(234, 238, 239);
+    position: relative;
+    margin: auto;
+    font-size: 30px;
+    height: 2.5em;
+    width: 2.5em;
+    /* color: #ffffff; */
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transition: 0.5s;
+    }
+    
+    .card:hover {
+    background-position: 0 100%;
+    /* background-image: url(images/.jpeg); */
+    }
+    .card:hover .icon-wrapper {
+    background-color: #d6d8d8;
+    color: rgb(61, 192, 131);
+    }
+    .card:hover h3 {
+    color: #ffffff;
+    }
+    .card:hover p {
+    color: #f0f0f0;
+    }
+    @media screen and (min-width: 768px) {
+    section {
+    padding: 0em 2em;
+    }
+    .column {
+    flex: 0 50%;
+    max-width: 50%;
+    }
+    }
+    @media screen and (min-width: 992px) {
+    section {
+    padding: 1em 3em;
+    }
+    .column {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    }
+    }
+    .cont{
+    max-width: 1170px;
+    margin:auto;
+    /* margin-top: 50%; */
+    }
+    .row{
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-top: 50%; */
+    }
+    ul{
+    list-style: none;
+    }

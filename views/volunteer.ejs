@@ -1,0 +1,78 @@
+
+<link rel="stylesheet" href="/uploadimage.css">
+<% layout('./layout/boilerplate') %>
+
+<section class="container" id="form-container">
+    <div class="imagepreview">
+        <form action="/post_volunteer" method="post" enctype="multipart/form-data" id="submitForm">
+            <div class="col-md-6 input">
+            <div class="form-group">
+            <label for="category">Category:</label>
+                <select name="category" id="category" class="form-control" placeholder="category">
+                    <option value="8">Medical</option>
+                    <option value="9">Educational</option>
+                    <option value="10">Sports</option>
+                    <option value="11">Councelling</option>
+
+                </select>
+            </div>
+            </div>
+            <div class="col-md-6 input">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Enter description" type="text"name="Item" id="item">
+                </div>
+            </div>
+            <div class="col-md-12 input">
+                <div class="form-group">
+                    <input value="SUBMIT" class="btn btn-primary"type="submit" id="image-upload-btn">
+                </div>
+            </div>
+        </form>
+        
+    </div>
+
+</section>
+
+
+
+<script src="/uploadimage.js"></script>
+
+
+<script>
+    document.getElementById('submitForm').addEventListener('submit', async (event) => {
+      event.preventDefault(); // Prevent form submission
+
+      // Fetch form data
+      const category = document.getElementById('category').value;
+      const item = document.getElementById('item').value;
+
+      // Create request body
+      const data = {
+        category,
+        item
+      };
+
+      try {
+        // Make POST request to server
+        const response = await fetch('/post_volunteer', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          // Handle successful response
+          alert("Posted successfully")
+          window.location.href = '/display_posted';
+        } else {
+          // Handle error response
+          alert('Failed to submit form');
+        }
+      } catch (error) {
+        // Handle fetch error
+        alert('Failed to fetch', error);
+      }
+    });
+  </script>

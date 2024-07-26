@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/display_patients.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <title>Patient Registration</title>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <section class="container">
+        <form action="/upload" method="post">
+            <label for="name">Name : </label>
+            <br>
+            <input type="text" class='name' name='name' id='name' required>
+            <br>
+            <label for="age">Age : </label>
+            <br>
+            <input type="number" class='age' name='age' id='age' required>
+            <br>
+            <label for="bg">Blood Group :</label>
+            <br>
+            <input type="text" class='bg' name='bg' id='bg' required>
+            <br>
+            <label for="pid">Patient ID : </label>
+            <br>
+            <input type="text" class='pid' name='pid' id='pid' required>    
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+</body>
+<script>
+    $(function(){
+        $("#nav-placeholder").load("nav.html");
+    });
+</script>
+</html>

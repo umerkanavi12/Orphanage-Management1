@@ -1,0 +1,26 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.container{
+    width: 50%;
+    margin-top: 3%;
+    height: fit-content;
+    position: relative;
+}
+
+.clearfix{
+    border: 2px solid red;
+margin: 10px;
+}
+#view{
+    
+vertical-align: middle;
+  
+}
+.detail{
+    
+    display: inline; 
+    margin: 0px;
+    width: fit-content;
+}

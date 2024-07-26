@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Century Gothic;
+}
+
+header{
+	background:rgba(0,0,0,0.7)url(../main.jpg);
+	
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+	background-blend-mode: darken;
+}
+
+ul{
+	float: right;
+	list-style-type: none;
+    margin-top: 25px;
+}
+
+ul li{
+	display: inline-block;
+}
+
+ul li a{
+	text-decoration: none;
+	color: #b8b0b0;
+	padding: 5px 20px;
+	border: 1px solid #439666;
+	transition: 0.8s ease;
+	font-weight: bold;
+}
+
+ul li a:hover{
+	background-color: #666666af;
+	color: #e6e0e0;
+}
+
+
+.logo img{
+	float: left;
+	width: 265px;
+	height: auto;
+}
+
+
+.main{
+	max-width: 1700px;
+	margin: auto;
+}
+
+.title{
+	position: relative;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.title h1{
+	font-size: 30px;
+}
+
+.button{
+	position: absolute;
+	top: 55%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.btn{
+	border: 1px solid #fff;
+	padding: 10px 30px;
+	color: #fff;
+	text-decoration: none;
+	transition: 0.6s ease;
+}
+
+.btn:hover{
+	background-color: #fff;
+	color: #000;
+}
+
+.text-box{
+	width: 90%;
+	color: #ffffffb5;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%,-10%);
+	text-align: center;
+	font-size: 20px;
+    }
+
+
+.text-box p{
+	margin: 10px 0 40px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+button{
+	width: 200px;
+	padding: 15px 0;
+	text-align: centre;
+	margin: 20px 10px;
+	border-radius: 25px;
+	font-weight: bold;
+	border: 2px solid #009688;
+	background: transparent;
+	color: rgb(212, 204, 204);
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	margin-top: 40px;
+}
+
+span{
+	background: #009688;
+	height: 100%;
+	width: 0%;
+	border-radius: 25px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: -1;
+	transition: 0.5s;
+}
+
+button:hover span {
+	width: 100%;
+}
+
+button:hover{
+	border: none;
+}
+.child {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 1rem 3rem;
+  vertical-align: middle;
+
+}
+
+.child:hover{
+	border: 1px solid #36E7F4;
+	background: #36E7F4;
+	transition: 1s;
+}
+
+/* .main1{ 
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+}
+
+.p1 img{
+	float: right;
+	width: 450px;
+	height: auto;
+	/* align:"right"; */
+/*}
+
+.pic img{
+	height: 50vh;
+	width: 100%;
+	background-image: linear-gradient(rgba(4,9,30,0.7)rgba(4,9,30,0.7)),url(i3.jpeg);
+	margin-right: 5px;
+}
+
+.main1{
+	width: 80%;
+	margin: auto;
+	padding-top: 70px;
+	padding-bottom: 50px;
+}
+
+
+.container{
+	width: 70%;
+	right: 35%; 
+	letter-spacing: 20%;
+	top: 30%;
+	background-color: rgb(83, 92, 98);
+	padding: 40px;
+}
+
+.p1{
+	float: right;
+	width: 50%;
+}*/
+
+
+
+.pic1 {
+	float: right;
+	width: 40%;
+	 
+}
+
+
+
+input{
+	display: none;
+}
+
+.container1{
+	display: flex;
+	flex-wrap: wrap;
+}
+h4{
+	font-weight: normal;
+	font-size: 35px;
+    position: relative;
+    margin: 40px 0;
+}
+h4::before{
+	content: '';
+	position: absolute;
+	width: 100px;
+	height: 3px;
+ 	background-color: crimson;
+ 	bottom: -10px;
+ 	left: 50%;
+ 	transform: translate(-50%);
+ 	animation: animate 2s linear infinite;
+}
+
+@keyframes animate{
+	0%{
+		width: 60px;
+	}
+	50%{
+		width: 120px;
+	}
+	100%{
+		width: 60px;
+	}
+}
+
+.top-content{
+	background-color: rgb(243, 243, 243);
+	width: 90%;
+	margin: 0 auto 20px auto;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	border-radius: 5px;
+	box-shadow: 3px 3px 5px lightgrey;
+}
+h5{
+	font-size: 20px;
+	height: 100%;
+	background-color: gray;
+	line-height: 60px;
+	padding: 0 50px;
+	color: white;
+}
+label{
+	display: inline-block;
+	height: 100%;
+	margin: 0 20px;
+	line-height: 60px;
+	font-size: 18px;
+	color: dimgrey;
+	cursor: pointer;
+	transition: color .5s;
+}
+label:hover{
+	color: black;
+}
+
+
+
+
+
+
+
+
+
+/* STYLING THE NAVIGATION BAR OF IT SERVICES */
+.banner {
+    background-color: rgb(87, 80, 80);
+    }
+    /* STYLING OF NAVIGATION BAR */
+    .navbar {
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: centre;
+    justify-content: space-between;
+    }
+    /* STYLING OF LOGO */
+    .logo {
+    width: 200px;
+    cursor: pointer;
+    }
+    /* STYLING OF EACH NAVIGATION BUTTON */
+    .navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+    }
+    
+    .navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    }
+    /* STYLING HOVER EFFECT ON NAVIGTION BAR */
+    .navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background:rgb(0, 0, 0);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+    }
+    
+    .navbar ul li:hover::after {
+    width: 100%;
+    }

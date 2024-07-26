@@ -1,0 +1,198 @@
+<!-- <link rel="stylesheet" href="login.css"/> -->
+<link rel="stylesheet" href="/uploadimage.css">
+
+<!DOCTYPE html>
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
+  <meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+  <meta name="author" content="FreeHTML5.co" />
+
+  <meta property="og:title" content=""/>
+  <meta property="og:image" content=""/>
+  <meta property="og:url" content=""/>
+  <meta property="og:site_name" content=""/>
+  <meta property="og:description" content=""/>
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:url" content="" />
+  <meta name="twitter:card" content="" />
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700" rel="stylesheet">
+  
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="/animate.css">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="/icomoon.css">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="/bootstrap.css">
+  <!-- Flexslider  -->
+  <link rel="stylesheet" href="/flexslider.css">
+  <!-- Owl Carousel  -->
+  <link rel="stylesheet" href="/owl.carousel.min.css">
+  <link rel="stylesheet" href="/owl.theme.default.min.css">
+  <!-- Theme style  -->
+  <link rel="stylesheet" href="/style.css">
+
+  <script src="js/modernizr-2.6.2.min.js"></script>
+
+
+  </head>
+  <body>
+  
+  
+  <div id="fh5co-page">
+  <header id="fh5co-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <h1><a href="/index">Orphanage</a></h1>
+        <nav role="navigation">
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="wrap" >
+        <div class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
+            <div class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
+                <h1>Orphanage registration</h1>
+            </div>
+            
+        </div>
+        <div class="fh5co-staff text-center animate-box">
+            <section class="container" id="form-container">
+              <form action="/add_orphanage" method="post" enctype="multipart/form-data" id="registrationForm">
+                <div class="col-md-6 input">
+                  <div class="form-group">
+                    <input type="text" id="name" placeholder="Enter orphanage name" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-6 input">
+                  <div class="form-group">
+                    <textarea id="address" placeholder="Enter orphanage address" required class="form-control"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-6 input">
+                  <div class="form-group">
+                    <input type="email" name="email" id="email" placeholder="Email" required class="form-control">
+                    <span id="emailError" style="color: red;"></span>
+                  </div>
+                </div>
+                <div class="col-md-6 input">
+                  <div class="form-group">
+                    <input type="password" name="password" id="password" placeholder="Password" required class="form-control">
+                    <span id="passwordError" style="color: red;"></span>
+                  </div>
+                </div>
+              
+                <div class="col-md-12 input">
+                    <div class="form-group">
+                        <input value="Register" class="btn btn-primary"type="submit" id="image-upload-btn">
+                    </div>
+                </div>
+            </form>    
+            </section>
+        </div> 
+    </div>
+
+  </div>
+  
+  
+  <!-- jQuery -->
+  <script src="/jquery.min.js"></script>
+  <!-- jQuery Easing -->
+  <script src="/jquery.easing.1.3.js"></script>
+  <!-- Bootstrap -->
+  <script src="/bootstrap.min.js"></script>
+  <!-- Waypoints -->
+  <script src="/jquery.waypoints.min.js"></script>
+  <!-- Owl Carousel -->
+  <script src="/owl.carousel.min.js"></script>
+  <!-- Flexslider -->
+  <script src="/jquery.flexslider-min.js"></script>
+
+  <!-- MAIN JS -->
+  <script src="/main.js"></script>
+
+
+
+
+<script>
+  const form = document.getElementById('registrationForm');
+  const nameInput = document.getElementById('name');
+  const addressInput = document.getElementById('address');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const emailError = document.getElementById('emailError');
+  const passwordError = document.getElementById('passwordError');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent form submission
+
+    if (!validateEmail(emailInput.value)) {
+      emailError.textContent = 'Please enter a valid email address.';
+      return;
+    } else {
+      emailError.textContent = '';
+    }
+
+    if (!validatePassword(passwordInput.value)) {
+      passwordError.textContent = 'Password must be at least 8 characters long.';
+      return;
+    } else {
+      passwordError.textContent = '';
+    }
+
+    // Construct the form data object
+    const formData = {
+      name: nameInput.value,
+      address: addressInput.value,
+      email: emailInput.value,
+      password: passwordInput.value
+    };
+
+    try {
+      const response = await fetch('/add_orphanage', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        // Handle successful registration
+        alert("Registered successfully")
+        window.location.href = '/login';
+      } else {
+        // Handle registration error
+        alert('Registration failed');
+      }
+    } catch (error) {
+      // Handle fetch error
+      alert('Failed to fetch', error);
+    }
+  });
+
+  function validateEmail(email) {
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    return emailRegex.test(email);
+  }
+
+  function validatePassword(password) {
+    return password.length >= 8;
+  }
+</script>
+
+
+</body>
+</html>

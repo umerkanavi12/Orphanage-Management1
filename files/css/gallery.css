@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+ /* STYLING THE NAVIGATION BAR OF IT SERVICES */
+ .banner {
+    background-color: rgb(87, 80, 80);
+    }
+    /* STYLING OF NAVIGATION BAR */
+    .navbar {
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: centre;
+    justify-content: space-between;
+    }
+    /* STYLING OF LOGO */
+    .logo {
+    width: 200px;
+    cursor: pointer;
+    }
+    /* STYLING OF EACH NAVIGATION BUTTON */
+    .navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+    }
+    
+    .navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    }
+    /* STYLING HOVER EFFECT ON NAVIGTION BAR */
+    .navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background:rgb(0, 0, 0);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+    }
+    
+    .navbar ul li:hover::after {
+    width: 100%;
+    } 
+    
+section
+{
+  padding: 20px;
+  width: 1280px;
+  margin: 40px auto;
+}
+section ul
+{
+    display: flex;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+section ul li
+{
+    list-style: none;
+    background: #eee;
+    padding: 8px 20px;
+    margin: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+section ul li.active
+{
+    background: #393e40;
+    color: #fff;
+}
+
+.product
+{ 
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product .itemBox
+{
+    position: relative;
+    width: 300px; 
+    height: 300px;
+    margin: 5px;
+}
+
+.product .itemBox img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+

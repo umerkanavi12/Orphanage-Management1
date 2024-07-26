@@ -1,0 +1,87 @@
+<% layout('/layout/boilerplate') %>
+	<div class="fh5co-team fh5co-light-grey-section">
+		<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3 text-center fh5co-heading animate-box">
+						<h2>Requirements Posted by you</h2>
+					</div>
+					<div class="col-md-4 fh5co-staff text-center animate-box">
+
+                        <button type="button" name="view" id="view" class="btn btn-primary float-right"><a style="color: white;" href="/post_requirement">Post Requirement</a></button>
+                        <button type="button" name="view" id="view" class="btn btn-primary float-right"><a style="color: white;" href="/donations_made">Donations Made</a></button>
+                        <button type="button" name="view" id="view" class="btn btn-primary float-right"><a style="color: white;" href="/post_volunteer">Post Volunteer</a></button>
+                        <button type="button" name="view" id="view" class="btn btn-primary float-right"><a style="color: white;" href="/posted_volunteer">Display Volunteering posted</a></button>
+                        
+						
+                        
+                    <div class="page" style="color: black;">
+                        <section class="container">
+                            <table class="table table-hover" ,align="center">
+                                <div class="clearfix">
+                                    <tbody>
+                                    <thead>
+                                        <tr>
+                                            <th style="text-transform: uppercase;">Category</th>
+                                            <th style="text-transform: uppercase;">Item</th>
+                                            <th style="text-transform: uppercase;">Quantity</th>
+                                            <th style="text-transform: uppercase;">Emergency value</th>
+                                        </tr>
+                                    </thead>
+                                    <% for (let patient of data.requirements) { %>
+                                        <tr style="font-weight: 800;">
+                                            <td class="pclass"><%= patient.category %></td>
+                                            <td style="text-transform: uppercase;"><%= patient.item %></td>
+                                            <td ><%= patient.quantity %></td>
+                                            <td class="evalue"><%= patient.emergency_value %></td>
+                                            
+                                        </tr>
+                                    <% } %>
+                                    </tbody>
+                                </div>
+                            </table>
+                                    </div>
+                                    
+                                </div>
+                        </div>
+	            </div>
+    </div>
+
+    <script>
+        const evalue = document.getElementsByClassName('evalue')
+        for(var i = 0; i < evalue.length; i++)
+        {
+            if(evalue[i].textContent == 0){
+                evalue[i].textContent = 'not urgent';
+            }
+            else if(evalue[i].textContent == 1){
+                evalue[i].textContent = 'Urgent';
+            }
+        }
+
+        const pclass = document.getElementsByClassName('pclass')
+        for(var i = 0; i < pclass.length; i++){
+    
+        
+            if(pclass[i].textContent == 1){
+                pclass[i].textContent = 'Food';
+            }
+            else if(pclass[i].textContent == 2){
+                pclass[i].textContent = 'Cloths';
+            }
+            else if(pclass[i].textContent == 3){
+                pclass[i].textContent = 'Stationary';
+            }
+            else if(pclass[i].textContent == 4){
+                pclass[i].textContent = 'Toys';
+            }
+            else if(pclass[i].textContent == 5){
+                pclass[i].textContent = 'Funds';
+            }
+            else if(pclass[i].textContent == 6){
+                pclass[i].textContent = 'Medical Care';
+            }
+        }
+        
+    </script>
+
+    

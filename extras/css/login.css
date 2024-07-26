@@ -1,0 +1,64 @@
+
+#form-container{
+	width: 80%;
+
+}
+
+.wrap input {
+	width: 100%;
+	border: none;
+	background: #fff;
+  font-weight:700 ;
+	display: block;
+	height: 40px;
+	outline: none;
+	/* width: calc(100% - 24px) ; */
+	/* margin: auto; */
+	padding: 6px 12px 6px 12px;
+	text-align: center;
+
+}
+/* .bar {
+	width: 70%;
+	height: 1px;
+	background: rgb(128, 124, 124) ;
+} */
+.bar i {
+	width: 95%;
+	margin: auto;
+	height: 1px ;
+	display: block;
+	background: #8d8989;
+}
+.wrap input[type="text"] {
+	border-radius: 7px 7px 0px 0px ;
+}
+.wrap input[type="password"] {
+	border-radius: 0px 0px 7px 7px ;
+}
+
+.wrap button {
+	width: 30%;
+	margin-top: 5%;
+	margin-bottom: 10%;
+	border-radius: 30px;
+	background: rgb(0, 255, 255);
+	text-decoration: center;
+	border: none;
+	color: #ffffff;
+	padding-top: 14px;
+	padding-bottom: 14px;
+	outline: none;
+	cursor: pointer;
+	font-size: large;
+    font-weight: bolder;
+}
+
+@media only screen and (min-width: 600px) {
+	#form-container {
+	max-width: 30%;
+	}
+	.bar i{
+		width: 70%;
+	}
+}

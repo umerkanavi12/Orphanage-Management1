@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link  rel="stylesheet" type="text/css" href="gallery.css">
+</head>
+<body>
+    <div class="banner">
+      
+        <div class="navbar">
+           <a href="index.html"> <img src="logo.png" class="logo"></a> <!-- LOGO IMAGE -->
+            <ul>
+                
+                <li><a href="index.html">HOME</a></li>
+				<li><a href="info.html">INFO</a></li>
+				<li><a href="gallery.html">GALLERY</a></li>
+				<li><a href="/about">ABOUT US</a></li>
+                </ul>
+            </div>
+            </div>
+    <section>
+        <ul>
+            <li class="list active" data-filter="All">All</li>
+            <li class="list" data-filter="Felicia">Felicia</li>
+            <li class="list" data-filter="Dayashankar">Dayashankar</li>
+            <li class="list" data-filter="Peace">Peace</li>
+            <li class="list" data-filter="Sushanti">Sushanti</li>
+             </ul>
+        <div class="product">
+            <div class="itemBox Felicia"><img src="f1.jpeg"></div>
+            <div class="itemBox Felicia"><img src="f2.jpeg"></div>
+            <div class="itemBox Felicia"><img src="f3.jpeg"></div>    
+            <div class="itemBox Dayashankar"><img src="d1.jpeg"></div>
+            <div class="itemBox Dayashankar"><img src="d2.jpeg"></div>
+            <div class="itemBox Dayashankar"><img src="d3.jpeg"></div>
+            <div class="itemBox Peace"><img src="p1.jpeg"></div>
+            <div class="itemBox Peace"><img src="p2.jpeg"></div>
+            <div class="itemBox Sushanti"><img src="s1.jpeg"></div>
+            <div class="itemBox Sushanti"><img src="s2.jpeg"></div>
+            <div class="itemBox Sushanti"><img src="s3.jpeg"></div>
+        </div>
+        </section>
+        <script
+  src="https://code.jquery.com/jquery-3.6.4.js"
+  integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+       $('.list').click(function(){
+        const value = $(this).attr('data-filter');
+        if (value == 'All'){
+            $('.itemBox').show('1000');
+        }
+        else{
+            $('.itemBox').not('.'+value).hide('1000');
+            $('.itemBox').filter('.'+value).show('1000');
+              
+        }
+
+       }) 
+        $('.list').click(function(){
+            $(this).addClass('active').siblings().removeClass('active');
+        })
+    })
+  </script>
+   
+</body>
+</html>
